@@ -1,4 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
 
 <!--
 `lrndesign-biocard`
@@ -14,7 +17,26 @@ A LRN element
         display: block;
       }
     </style>
-    <h2>[[title]]</h2>
+    <paper-card image="[[image]]">
+  <div class="card-content">
+    <div class="cafe-header">[[instructorName]]
+      <div class="cafe-location cafe-light">
+        <p><iron-icon icon="icons:store"></iron-icon> Office Location<br>
+        [[address]]</p>        
+      </div>
+    </div>
+    <p>Contact Me:</br>
+    <iron-icon icon="icons:settings-phone"></iron-icon> [[phone]]<br>
+    <iron-icon icon="icons:mail"></iron-icon> [[email]]</p>
+    <p><content></content></p>
+  </div>
+      <p><iron-icon icon="icons:query-builder"></iron-icon> Office Hours: </p>
+      [[officeHours]]
+      <p><a href="mailto:[[email]]">
+  <paper-button raised><iron-icon icon="icons:today"></iron-icon> Schedule Appointment</paper-button>
+</a></p>
+</div>
+</paper-card>
   </template>
 
   <script>
@@ -27,8 +49,31 @@ A LRN element
           type: String,
           value: 'lrndesign-biocard',
         },
-      },
-
+        image: {
+          type: String,
+          value: '',
+        },
+        instructorName: {
+        	type: String,
+        	value: '',
+        },
+        address: {
+        	type: String,
+        	value: '',
+        },
+        phone: {
+        	type: String,
+        	value: '',
+        },
+        email: {
+        	type: String,
+        	value: '',
+        },
+        officeHours: {
+        	type: String,
+        	value: '',
+        }
+      }
     });
   </script>
 </dom-module>
